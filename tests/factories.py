@@ -101,3 +101,24 @@ class FloorFactory(factory.alchemy.SQLAlchemyModelFactory):
         model = restaurant_models.Floor
         sqlalchemy_session = DB.session
         sqlalchemy_session_persistence = "commit"
+
+
+class LocationFactory(factory.alchemy.SQLAlchemyModelFactory):
+    name = factory.Faker("text")
+    code = factory.Faker("text")
+    country = factory.Faker("text")
+    region = factory.Faker("text")
+    city = factory.Faker("text")
+    address = factory.Faker("text")
+    longitude = factory.Faker("text")
+    latitude = factory.Faker("text")
+    type = factory.Faker("text")
+    status = factory.Faker("text")
+    comment = factory.Faker("text")
+    working_hours = factory.Faker(random.randint(0,12))
+    closed_days = factory.Faker(random.randint(0,6))
+
+    class Meta:
+        model = restaurant_models.Location
+        sqlalchemy_session = DB.session
+        sqlalchemy_session_persistence = "commit"
